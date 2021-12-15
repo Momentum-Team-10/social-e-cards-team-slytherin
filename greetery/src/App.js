@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import Card from './component/Card'
 import { cardsData } from './cardsData'
-
 import './App.css';
 
 function App() {
