@@ -1,5 +1,6 @@
 import { useState } from 'react'
-import Card from './component/Card'
+// import Card from './component/Card'
+import Card from './component/Test'
 import { cardsData } from './cardsData'
 import './App.css';
 
