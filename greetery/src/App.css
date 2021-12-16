@@ -47,6 +47,27 @@
 nav {
   display: flex;
   justify-content: space-between;
-  border: 1px solid black;
+  border: 2px solid black;
   align-items: center;
+  height: 44px;
+  
+}
+
+.greetery_navbar {
+  display: flex;
+  justify-content: space-between;
+  width: 160px;
+  margin-left: 10px;
+  margin-bottom: 0px;
+}
+
+.home_profile_navbar {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-evenly;
+  width: 160px;
+}
+
+a {
+  color: black
 }
