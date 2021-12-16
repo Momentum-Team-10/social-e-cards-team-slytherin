@@ -19,4 +19,9 @@ export const cardsData = [
         message: "Have a Happy Birthday"
         
     },
+    {
+        title: "Happy Fourth of July",
+        message: "Have a great Fourth of July"
+        
+    },
 ]
