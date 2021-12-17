@@ -17,7 +17,7 @@ function App() {
         <Navbar />
         <Routes>
           <Route path="/" element={<Gallery cards={cards}/>} />
-          <Route path="/new" element={<AddCard />} />
+          <Route path="/addcard" element={<AddCard />} />
         </Routes>
       </Router>
     </div>
