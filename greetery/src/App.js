@@ -4,8 +4,8 @@ import Gallery from './component/Gallery'
 import { cardsData } from './cardsData'
 import './App.css';
 import Navbar from './component/Navbar'
-import { AddCard, ColorChangeButton } from './component/AddCard'
-// import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
+import { AddCard } from './component/AddCard'
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 // import useLocalStorateState from 'use-local-storage-state'
 
 function App() {
@@ -13,11 +13,13 @@ function App() {
       
   return (
     <div className="App">
-      {/* <Router> */}
+      <Router>
         <Navbar />
-        <Gallery cards={cards}/>
-        <AddCard />
-      {/* </Router> */}
+        <Routes>
+          <Route path="/" element={<Gallery cards={cards}/>} />
+          <Route path="/new" element={<AddCard />} />
+        </Routes>
+      </Router>
     </div>
   );
 }
