@@ -9,37 +9,40 @@
 // card.public (boolean, set to true)
 // card.tag = checkbox/list
 
-
-
+import '../AddCard.css'
 import { useState } from 'react'
 
-export const ColorChangeButton = (props) => {
-  return (
-    <button className={props.color} onClick={() => props.setColor(props.color)}>{props.color}</button>
-  )
-}
+// export const ColorChangeButton = (props) => {
+//   return (
+//     <button className={props.color} onClick={() => props.setColor(props.color)}>{props.color}</button>
+//   )
+// }
 
 export const AddCard = () => {
-  // const [title, setTitle] = useState('')
+  const [title, setTitle] = useState('')
   const [message, setMessage] = useState('')
   const [bgcolor, setBgcolor] = useState('')
-  const handleChange = (event) => {
-    setMessage(event.target.value)
-  }
+  // const handleChange = (event) => {
+  //   setMessage(event.target.value)
+
   return (
     <>
-      <h2>Card Preview</h2>
-      {/* <h3>Title: {title}</h3> */}
-      <div className={`react-root ${bgcolor}`}>
-        <p>{message}</p>
+      <div id="preview">
+        <h2>Card Preview</h2>
+        <h3>Title: {title}</h3>
+        <div id="output">  
+          <div className={bgcolor}>
+            <p>{message}</p>
+          </div>
+        </div>
       </div>
       <form>
-        {/* <input type="text" value={title} onChange={handleChange} /> */}
-        <input type="text" value={message} onChange={handleChange} />
-        <div id="buttons">
-            <ColorChangeButton color='pink' setColor={setBgcolor} />
-            <ColorChangeButton color='blue' setColor={setBgcolor} />
-            <ColorChangeButton color='green' setColor={setBgcolor} />
+        <input type="text" value={title} name="title" onChange={(e) => setTitle(e.target.value)} />
+        <input type="text" value={message} name="message" onChange={(e) => setMessage(e.target.value)} />
+        <div id="colors">
+            <button className="pink" value="pink" onClick={(e) => setBgcolor(e.target.value)}>pink</button>
+            <button className="blue" value="blue" onClick={(e) => setBgcolor(e.target.value)}>blue</button>
+            <button className="green" value="green" onClick={(e) => setBgcolor(e.target.value)}>green</button>
         </div>
       </form>
     </>

@@ -1,0 +1,40 @@
+
+
+.blue {
+    background-color: blue;
+  }
+  
+  .green {
+    background-color: green;
+  }
+  
+  .pink {
+    background-color: pink;
+  }
+  
+  .purple {
+    background-color: purple;
+  }
+  
+  .white {
+    background-color: white;
+  }
+  
+  .black {
+    background-color: black;
+  }
+
+form {
+    float: right;
+}
+
+#preview {
+    float: left;
+}
+
+#output {
+    width: 100px;
+    height: 200px;
+    border: 1px solid black;
+    margin: 5px;
+}
