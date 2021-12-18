@@ -1,40 +1,60 @@
-
-
 .blue {
     background-color: blue;
-  }
-  
-  .green {
-    background-color: green;
-  }
-  
-  .pink {
-    background-color: pink;
-  }
-  
-  .purple {
-    background-color: purple;
-  }
-  
-  .white {
-    background-color: white;
-  }
-  
-  .black {
-    background-color: black;
-  }
+}
 
-form {
-    float: right;
+.green {
+background-color: green;
+}
+
+.pink {
+background-color: pink;
+}
+
+.purple {
+background-color: purple;
+}
+
+.white {
+background-color: white;
+}
+
+.black {
+background-color: black;
+}
+
+
+#fragment.addcard {
+    display: flex;
+    flex-direction: row;
 }
 
 #preview {
     float: left;
+    flex-direction: column;
+}
+#output {
+    height: 700px;
+    width: 500px;
+    border: 1px solid black;
+    margin: 25px;
 }
 
-#output {
-    width: 100px;
-    height: 200px;
-    border: 1px solid black;
-    margin: 5px;
+#cardform {
+    flex-direction: column;
+    padding: 10px;
+    margin: 15px;
 }
+
+button {
+    margin: 15px;
+}
+
+.input-field {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+input {
+    margin-top: 5px;
+}
+
