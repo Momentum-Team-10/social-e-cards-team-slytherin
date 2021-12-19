@@ -18,6 +18,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Gallery cards={cards}/>} />
           <Route path="/addcard" element={<AddCard />} />
+          {/* <Route path="/mygallery" element={Gallery cards.filter={cards}} */}
         </Routes>
       </Router>
     </div>
