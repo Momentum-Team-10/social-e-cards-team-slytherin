@@ -23,32 +23,9 @@ export const AddCard = () => {
   const [msgfont, setMsgfont] = useState()
   // const handleChange = (event) => {
   //   setMessage(event.target.value)
-  // Create a function that adds the notes to the database once they're created with a POST request
-  // const createCard = (title, message, bgcolor) => {
-  // fetch(url, {
-  //     method: 'POST',
-  //     headers: { 'Content-Type': 'application/json' },
-  //     body: JSON.stringify({
-  //         // id: id.value,
-  //         title: title.value,
-  //         body: message.value,
-  //         color: bgcolor.value,
-  //         // created_at: moment().format()
-  //     })
-  // })
-  // .then(res => res.json())
-  // .then(cards => renderCardItem(cards))
-  // }
-  // Create a function that calls other functions (to add the note to the page and the database,) once the submit button is clicked
+
   const handleSubmit = (event) => {
     event.preventDefault()
-    // createCard(title, message, bgcolor)
-    // form.reset()
-  //   document.getElementById('title').value
-  //   document.getElementById('message').value
-  //   
-  //   form.reset()
-  // })
   }
   return (
     <>
@@ -111,49 +88,3 @@ export const AddCard = () => {
 //     <button className={props.color} onClick={() => props.setColor(props.color)}>{props.color}</button>
 //   )
 // }
-
-// Radio buttons (and checkboxes) are different because they rely on a `checked` attribute
-// That is a boolean on the element
-// We want that in state so the component knows whether an attribute should render as checked in the DOM
-// export const RadioInput = () => {
-//   const [letter, setLetter] = useState()
-
-//   const handleChange = (event) => {
-//     setLetter(event.target.value)
-//   }
-//   return (
-//     <>
-//       <h2>Radio Buttons</h2>
-//       <form>
-//         <div>
-//           <input
-//             type="radio"
-//             value="a"
-//             checked={letter === 'a'}
-//             onChange={handleChange}
-//           />
-//           {'Option A'}
-//         </div>
-//         <div>
-//           <input
-//             type="radio"
-//             value="b"
-//             checked={letter === 'b'}
-//             onChange={handleChange}
-//           />
-//           {'Option B'}
-//         </div>
-//         <div>
-//           <input
-//             type="radio"
-//             value="c"
-//             checked={letter === 'c'}
-//             onChange={handleChange}
-//           />
-//           {'Option C'}
-//         </div>
-//       </form>
-//     </>
-//   )
-// }
-
