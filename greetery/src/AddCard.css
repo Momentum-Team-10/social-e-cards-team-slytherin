@@ -3,34 +3,61 @@
 }
 
 .green {
-background-color: green;
+    background-color: green;
 }
 
 .pink {
-background-color: pink;
+    background-color: pink;
 }
 
 .purple {
-background-color: purple;
+    background-color: purple;
 }
 
 .white {
-background-color: white;
+    background-color: white;
 }
 
 .black {
-background-color: black;
+    background-color: black;
 }
 
+.blue-text {
+    color: blue;
+}
 
-#fragment.addcard {
+.green-text {
+    color: green;
+}
+
+.pink-text {
+    color: pink;
+}
+
+.purple-text {
+    color: purple;
+}
+
+.white-text {
+    color: white;
+}
+
+.black-text {
+    color: black;
+}
+
+#addcard {
     display: flex;
     flex-direction: row;
+    border-collapse: collapse;
 }
 
 #preview {
-    float: left;
     flex-direction: column;
+    float: left;
+    padding: 10px;
+    width: 47%;
+    border: 1px solid gray;
 }
 #output {
     height: 700px;
@@ -41,14 +68,23 @@ background-color: black;
 
 #cardform {
     flex-direction: column;
+    float: right;
     padding: 10px;
-    margin: 15px;
+    width: 47%;
+    border: 1px solid gray;
 }
 
 button {
-    margin: 15px;
+    margin: 10px;
+    min-width: 30px;
+    min-height: 30px;
+    border-radius: 20px;
+    cursor: pointer;
 }
 
+button#submit {
+    width: 100px
+}
 .input-field {
     margin-bottom: 15px;
     text-align: left;
@@ -58,3 +94,6 @@ input {
     margin-top: 5px;
 }
 
+h4 {
+    font-size: 2em;
+}

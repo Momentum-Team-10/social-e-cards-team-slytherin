@@ -13,49 +13,50 @@ import '../AddCard.css'
 import { useState } from 'react'
 
 
-const url = "http://localhost:3000/cards"
+// const url = "http://localhost:3000/addcard/cards"
 
 export const AddCard = () => {
   const [title, setTitle] = useState('')
   const [message, setMessage] = useState('')
   const [bgcolor, setBgcolor] = useState('')
+  const [msgcolor, setMsgcolor] = useState('')
   // const handleChange = (event) => {
   //   setMessage(event.target.value)
   // Create a function that adds the notes to the database once they're created with a POST request
-  const createCard = (title, message, bgcolor) => {
-  fetch(url, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-          // id: id.value,
-          title: title.value,
-          body: message.value,
-          color: bgcolor.value,
-          // created_at: moment().format()
-      })
-  })
-  .then(res => res.json())
+  // const createCard = (title, message, bgcolor) => {
+  // fetch(url, {
+  //     method: 'POST',
+  //     headers: { 'Content-Type': 'application/json' },
+  //     body: JSON.stringify({
+  //         // id: id.value,
+  //         title: title.value,
+  //         body: message.value,
+  //         color: bgcolor.value,
+  //         // created_at: moment().format()
+  //     })
+  // })
+  // .then(res => res.json())
   // .then(cards => renderCardItem(cards))
-}
+  // }
   // Create a function that calls other functions (to add the note to the page and the database,) once the submit button is clicked
   const handleSubmit = (event) => {
     event.preventDefault()
-    createCard(title, message, bgcolor)
+    // createCard(title, message, bgcolor)
     // form.reset()
   //   document.getElementById('title').value
   //   document.getElementById('message').value
   //   
-  //   createNote(noteTitle, noteText)
   //   form.reset()
   // })
   }
   return (
-    <fragment id="addcard">
+    <>
+      <div className="addcard">
         <div id="preview">
           <h2>Card Preview</h2>
           <h3>Title: {title}</h3>
           <div id="output" className={bgcolor}>  
-              <p>{message}</p>
+              <h4 className={msgcolor}>{message}</h4>
           </div>
         </div>
         <div id="cardform">
@@ -63,22 +64,35 @@ export const AddCard = () => {
           <form onSubmit={handleSubmit} id="add-card">
             <div className="input-field" id="card-title-field">
             <label htmlFor='title' id="title-label">Title:</label><br />
-            <input id="title" type="text-box" value={title} name="title" placeholder="Give your card a title!" onChange={(e) => setTitle(e.target.value)} />
+            <input id="title" type="text" value={title} name="title" placeholder="Give your card a title!" onChange={(e) => setTitle(e.target.value)} />
             </div>
             <div className="input-field" id="card-message-field">
             <label htmlFor='message'>Message:</label><br />
             <input type="text" value={message} name="message" onChange={(e) => setMessage(e.target.value)} />
             </div>
-            <div id="colors">
+            <div className="bgcolors">
               <label htmlFor='bgcolor'>Card color:</label><br />
-                <button className="pink" value="pink" onClick={(e) => setBgcolor(e.target.value)}>pink</button>
-                <button className="blue" value="blue" onClick={(e) => setBgcolor(e.target.value)}>blue</button>
-                <button className="green" value="green" onClick={(e) => setBgcolor(e.target.value)}>green</button>
+                <button type="button" className="pink" value="pink" onClick={(e) => setBgcolor(e.target.value)}></button>
+                <button type="button" className="blue" value="blue" onClick={(e) => setBgcolor(e.target.value)}></button>
+                <button type="button" className="green" value="green" onClick={(e) => setBgcolor(e.target.value)}></button><br />
+                <button type="button" className="white" value="white" onClick={(e) => setBgcolor(e.target.value)}></button>
+                <button type="button" className="black" value="black" onClick={(e) => setBgcolor(e.target.value)}></button>
+                <button type="button" className="purple" value="purple" onClick={(e) => setBgcolor(e.target.value)}></button>
             </div>
-            <button type="submit">Done!</button>
+            <div className="msgcolors">
+              <label htmlFor='bgcolor'>Text color:</label><br />
+                <button type="button" className="pink" value="pink-text" onClick={(e) => setMsgcolor(e.target.value)}></button>
+                <button type="button" className="blue" value="blue-text" onClick={(e) => setMsgcolor(e.target.value)}></button>
+                <button type="button" className="green" value="green-text" onClick={(e) => setMsgcolor(e.target.value)}></button><br />
+                <button type="button" className="white" value="white-text" onClick={(e) => setMsgcolor(e.target.value)}></button>
+                <button type="button" className="black" value="black-text" onClick={(e) => setMsgcolor(e.target.value)}></button>
+                <button type="button" className="purple" value="purple-text" onClick={(e) => setMsgcolor(e.target.value)}></button>
+            </div>
+            <button type="submit" id="submit">Done!</button>
           </form>
         </div>
-    </fragment>
+      </div>
+    </>
   )
 } 
 
