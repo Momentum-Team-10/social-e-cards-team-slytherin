@@ -95,5 +95,13 @@ input {
 }
 
 h4 {
-    font-size: 2em;
+    font-size: 3em;
+}
+
+.sans-serif {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.serif {
+    font-family: Garamond, "Courier New", serif;
 }

@@ -20,6 +20,7 @@ export const AddCard = () => {
   const [message, setMessage] = useState('')
   const [bgcolor, setBgcolor] = useState('')
   const [msgcolor, setMsgcolor] = useState('')
+  const [msgfont, setMsgfont] = useState()
   // const handleChange = (event) => {
   //   setMessage(event.target.value)
   // Create a function that adds the notes to the database once they're created with a POST request
@@ -55,8 +56,10 @@ export const AddCard = () => {
         <div id="preview">
           <h2>Card Preview</h2>
           <h3>Title: {title}</h3>
-          <div id="output" className={bgcolor}>  
+          <div id="output" className={bgcolor}> 
+            <div className={msgfont}>
               <h4 className={msgcolor}>{message}</h4>
+            </div>
           </div>
         </div>
         <div id="cardform">
@@ -68,7 +71,12 @@ export const AddCard = () => {
             </div>
             <div className="input-field" id="card-message-field">
             <label htmlFor='message'>Message:</label><br />
-            <input type="text" value={message} name="message" onChange={(e) => setMessage(e.target.value)} />
+            <input type="textarea" value={message} name="message" placeholder="Give your card a message!" onChange={(e) => setMessage(e.target.value)} />
+            </div>
+            <div className="input-field">
+              <label htmlFor='msgfont'>Choose a font type: </label><br />
+              <label className="sans-serif"><input type="radio"  value="sans-serif" checked={msgfont === 'sans-serif'} onChange={(e) => setMsgfont(e.target.value)} />sans serif</label><br />
+              <label className="serif"><input type="radio"  value="serif" checked={msgfont === 'serif'} onChange={(e) => setMsgfont(e.target.value)} />serif</label>
             </div>
             <div className="bgcolors">
               <label htmlFor='bgcolor'>Card color:</label><br />
