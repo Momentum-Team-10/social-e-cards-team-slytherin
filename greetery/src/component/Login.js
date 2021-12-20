@@ -3,7 +3,7 @@ import "../Login.css";
 import axios from "axios";
 
 
-export default function Login() {
+export default function Login({ setAuth, hello }) {
   const [modal, setModal] = useState(false);
   const [password, setPassword] = useState("");
   const [username, setUsername] = useState("");
@@ -17,9 +17,9 @@ export default function Login() {
     })
     .then((res) => {
       console.log(res)
-      // if (res.data.auth_token) {
-      //   setAuth(username, res.data.auth_token)
-      // }
+      if (res.data.auth_token) {
+        // setAuth(username, res.data.auth_token)
+      }
     })
   }
 

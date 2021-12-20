@@ -17,7 +17,6 @@ function App() {
   function setAuth(username, token){
     setUsername(username)
     setToken(token)
-
   }
   // const isLoggedIn 
       
@@ -28,7 +27,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Gallery cards={cards}/>} />
           <Route path="/addcard" element={<AddCard />} />
-          <Route path="/login" element={<Login />} />
+          <Route path="/login" element={<Login setAuth={setAuth} hello="hello" />} />
           {/* <Route path="/mygallery" element={Gallery cards.filter={cards}} */}
         </Routes>
       </Router>
