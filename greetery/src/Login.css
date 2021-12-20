@@ -3,9 +3,9 @@ body.active-modal {
 }
 
 .btn-modal {
-    padding: 10px 20px;
+    padding: 5px 10px;
     display: block;
-    margin: 100px auto 0;
+    /* margin: 100px auto 0; */
     font-size: 18px;
 }
 
@@ -40,4 +40,8 @@ body.active-modal {
     top: 10px;
     right: 10px;
     padding: 5px 7px;
+}
+
+i {
+    color: black;
 }

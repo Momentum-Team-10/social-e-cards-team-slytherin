@@ -17,9 +17,9 @@ export default function Login() {
 
   return (
     <>
-      <button onClick={toggleModal} className="btn-modal">
-        Login
-      </button>
+      <i onClick={toggleModal} className="fas fa-sign-in-alt">
+         Login
+      </i>
 
       {modal && (
         <div className="modal">
