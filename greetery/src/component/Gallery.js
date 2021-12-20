@@ -8,8 +8,7 @@ const Gallery = (props) => {
             </header>
             <div className='cards_container'>
             {props.cards.map((card, index) => (
-                <Card title={card.title} key={index} message={card.message} />
-            
+                <Card title={card.title} key={index} message={card.message} favorited={card.favorited} />
             ))}
             </div>
         </div>
