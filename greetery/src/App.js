@@ -4,7 +4,8 @@ import Gallery from './component/Gallery'
 import { cardsData } from './cardsData'
 import './App.css';
 import Navbar from './component/Navbar'
-import { AddCard } from './component/AddCard'
+import Login from './component/Navbar'
+import  { AddCard } from './component/AddCard'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 // import useLocalStorateState from 'use-local-storage-state'
 
@@ -18,6 +19,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Gallery cards={cards}/>} />
           <Route path="/addcard" element={<AddCard />} />
+          <Route path="/login" element={<Login />} />
           {/* <Route path="/mygallery" element={Gallery cards.filter={cards}} */}
         </Routes>
       </Router>

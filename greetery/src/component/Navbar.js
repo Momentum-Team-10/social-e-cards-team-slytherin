@@ -1,3 +1,5 @@
+import { Login } from "./Login.js"
+
 
 
 
@@ -12,7 +14,8 @@ const Navbar = () => {
             <a href="/addcard">CREATE NEW CARD</a>
             <div className="home_profile_navbar">
                 <a href="/" className="fas fa-home"> </a>
-                <a href="/"className="fas fa-user"> </a>
+                <a href="/" className="fas fa-user"> </a>
+                <a href="/login" className="fas fa-sign-in-alt">Login</a>
             </div>
         </nav>
     )
