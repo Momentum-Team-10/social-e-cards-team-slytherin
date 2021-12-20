@@ -7,10 +7,19 @@ import Navbar from './component/Navbar'
 import Login from './component/Navbar'
 import  { AddCard } from './component/AddCard'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
-// import useLocalStorateState from 'use-local-storage-state'
+import useLocalStorageState from 'use-local-storage-state'
 
 function App() {
   const [cards] = useState(cardsData)
+  const [token, setToken] = useLocalStorageState("greeteryAuthToken", null)
+  const [username, setUsername] = useLocalStorageState("greeteryUsername", "")
+
+  function setAuth(username, token){
+    setUsername(username)
+    setToken(token)
+
+  }
+  // const isLoggedIn 
       
   return (
     <div className="App">
