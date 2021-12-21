@@ -27,16 +27,16 @@ export default function Login({ setAuth, hello }) {
     setModal(!modal);
   };
 
-  if(modal) {
-    document.body.classList.add('active-modal')
+  if (modal) {
+    document.body.classList.add("active-modal");
   } else {
-    document.body.classList.remove('active-modal')
+    document.body.classList.remove("active-modal");
   }
 
   return (
     <>
       <i onClick={toggleModal} className="fas fa-sign-in-alt">
-         Login
+        Login
       </i>
 
       {modal && (
@@ -53,21 +53,20 @@ export default function Login({ setAuth, hello }) {
                 value={username}
                 onChange={(event) => setUsername(event.target.value)}
                 />
-               </div>
-               
-               <div>
-               <label>Password </label>
+              </div>
+
+              <div>
+                <label>Password </label>
                 <input
                 type="password"
                 id="password"
                 value={password}
                 onChange={(event) => setPassword(event.target.value)}
                 />
-                </div>
-
-                <div>
+              </div>
+              <div>
                 <button type="submit">Log In</button>
-                </div>
+              </div>
             </form>
             <button className="close-modal" onClick={toggleModal}>
               CLOSE
@@ -75,9 +74,6 @@ export default function Login({ setAuth, hello }) {
           </div>
         </div>
       )}
-      
     </>
   );
 }
-
-
