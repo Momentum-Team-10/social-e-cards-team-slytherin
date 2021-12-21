@@ -1,8 +1,27 @@
 import React, { useState } from "react";
 import "../Login.css";
+import axios from "axios";
 
-export default function Login() {
+
+export default function Login({ setAuth, hello }) {
   const [modal, setModal] = useState(false);
+  const [password, setPassword] = useState("");
+  const [username, setUsername] = useState("");
+  
+  const handleSubmit = (event) => {
+    event.preventDefault()
+    axios 
+    .post('https://greeterycards.herokuapp.com/auth/token/login', {
+      username: username,
+      password: password,
+    })
+    .then((res) => {
+      console.log(res)
+      if (res.data.auth_token) {
+        // setAuth(username, res.data.auth_token)
+      }
+    })
+  }
 
   const toggleModal = () => {
     setModal(!modal);
@@ -25,24 +44,24 @@ export default function Login() {
           <div onClick={toggleModal} className="overlay"></div>
           <div className="modal-content">
             <h2>Please Log In</h2>
-            <form>
-              <div>
+            <form onSubmit={handleSubmit}>
+                <div>
                 <label>Username </label>
                 <input
-                  type="text"
-                  id="username"
-                  // value={username}
-                  // onChange={(event) => setUsername(event.target.value)}
+                type="text"
+                id="username"
+                value={username}
+                onChange={(event) => setUsername(event.target.value)}
                 />
               </div>
 
               <div>
                 <label>Password </label>
                 <input
-                  type="password"
-                  id="password"
-                  // value={password}
-                  // onChange={(event) => setPassword(event.target.value)}
+                type="password"
+                id="password"
+                value={password}
+                onChange={(event) => setPassword(event.target.value)}
                 />
               </div>
               <div>
