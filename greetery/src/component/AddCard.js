@@ -12,7 +12,9 @@
 import "../AddCard.css";
 import { useState } from "react";
 
+
 // const url = "http://localhost:3000/addcard/cards"
+
 
 export const AddCard = () => {
   const [title, setTitle] = useState("");
@@ -20,6 +22,9 @@ export const AddCard = () => {
   const [bgcolor, setBgcolor] = useState("");
   const [msgcolor, setMsgcolor] = useState("");
   const [msgfont, setMsgfont] = useState();
+  const [cardType, setCardType] = useState('christmas');
+
+
   // const handleChange = (event) => {
   //   setMessage(event.target.value)
 
@@ -32,10 +37,12 @@ export const AddCard = () => {
         <div id="preview">
           <h2>Card Preview</h2>
           <h3>Title: {title}</h3>
-          <div id="output" className={bgcolor}>
-            <div className={msgfont}>
-              <h4 className={msgcolor}>{message}</h4>
-            </div>
+          <div id="output" className={cardType} >
+            <div className={bgcolor + ' background_block'}>
+              <div className={msgfont}>
+                <h4 className={msgcolor}>{message}</h4>
+              </div>
+            </div> 
           </div>
         </div>
         <div id="cardform">
@@ -88,6 +95,14 @@ export const AddCard = () => {
                 />
                 serif
               </label>
+              <div>
+                <select onChange={(e) => setCardType(e.target.value)}>
+                  <option value='christmas'>Christmas</option>
+                  <option value='valentines'>Valentines</option>
+                  <option value='fourth_of_july'>Fourth of July</option>
+                  <option value='thanksgiving'>Thanksgiving</option>
+                </select>
+              </div>
             </div>
             <div className="bgcolors">
               <label htmlFor="bgcolor">Card color:</label>
@@ -170,7 +185,7 @@ export const AddCard = () => {
                 value="purple-text"
                 onClick={(e) => setMsgcolor(e.target.value)}
               ></button>
-            </div>
+              </div>
             <button type="submit" id="submit">
               Done!
             </button>
