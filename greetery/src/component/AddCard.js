@@ -11,26 +11,51 @@
 
 import "../AddCard.css";
 import { useState } from "react";
+import axios from 'axios'
 
 
-// const url = "http://localhost:3000/addcard/cards"
-
-
-export const AddCard = () => {
+export const AddCard = ({setSubmitted}) => {
   const [title, setTitle] = useState("");
   const [message, setMessage] = useState("");
   const [bgcolor, setBgcolor] = useState("");
   const [msgcolor, setMsgcolor] = useState("");
-  const [msgfont, setMsgfont] = useState();
-  const [cardType, setCardType] = useState('christmas');
+  const [msgfont, setMsgfont] = useState('sans-serif');
+  const [cardType, setCardType] = useState('');
 
 
   // const handleChange = (event) => {
   //   setMessage(event.target.value)
 
   const handleSubmit = (event) => {
-    event.preventDefault();
+    event.preventDefault()
+    axios.post('https://greeterycards.herokuapp.com/ecard/create',
+    { title: title,
+      outer_message: message,
+      public: true,
+      outer_color: bgcolor,
+      outer_message_color: msgcolor,
+      outer_font: msgfont,
+      // outer_image: cardType,
+    },
+    {
+      headers: {
+        'Content-Type': 'application/json',
+        // Authorization: `token ${token}`
+      }
+    }
+    ).then(res => {
+      setSubmitted(true)
+      setTitle('')
+      setMessage('')
+      setBgcolor('')
+      setMsgcolor('')
+      setMsgfont('')
+      // setCardType('')
+      return res
+    })
   };
+
+
   return (
     <>
       <div className="addcard">
@@ -38,10 +63,8 @@ export const AddCard = () => {
           <h2>Card Preview</h2>
           <h3>Title: {title}</h3>
           <div id="output" className={cardType} >
-            <div className={bgcolor + ' background_block'}>
-              <div className={msgfont}>
-                <h4 className={msgcolor}>{message}</h4>
-              </div>
+            <div className={`background_block ${bgcolor} ${msgfont} ${msgcolor}`}>
+                <h4>{message}</h4>
             </div> 
           </div>
         </div>
@@ -62,6 +85,17 @@ export const AddCard = () => {
                 onChange={(e) => setTitle(e.target.value)}
               />
             </div>
+            <div className="input-field" id="card-theme">
+              <label forhtml="background-image">Card theme:</label><br />
+                <select onChange={(e) => setCardType(e.target.value)}>
+                  <option value="" disabled selected>Choose a background image</option>
+                  <option value='christmas'>Christmas</option>
+                  <option value='valentines'>Valentines</option>
+                  <option value='fourth_of_july'>Fourth of July</option>
+                  <option value='thanksgiving'>Thanksgiving</option>
+                </select>
+            </div>
+            <div className="message-options">
             <div className="input-field" id="card-message-field">
               <label htmlFor="message">Message:</label>
               <br />
@@ -74,7 +108,7 @@ export const AddCard = () => {
               />
             </div>
             <div className="input-field">
-              <label htmlFor="msgfont">Choose a font type: </label>
+              <label htmlFor="msgfont">Font type: </label>
               <br />
               <label className="sans-serif">
                 <input
@@ -95,17 +129,9 @@ export const AddCard = () => {
                 />
                 serif
               </label>
-              <div>
-                <select onChange={(e) => setCardType(e.target.value)}>
-                  <option value='christmas'>Christmas</option>
-                  <option value='valentines'>Valentines</option>
-                  <option value='fourth_of_july'>Fourth of July</option>
-                  <option value='thanksgiving'>Thanksgiving</option>
-                </select>
               </div>
-            </div>
             <div className="bgcolors">
-              <label htmlFor="bgcolor">Card color:</label>
+              <label htmlFor="bgcolor">Text background color:</label>
               <br />
               <button
                 type="button"
@@ -145,8 +171,8 @@ export const AddCard = () => {
                 onClick={(e) => setBgcolor(e.target.value)}
               ></button>
             </div>
-            <div className="msgcolors">
-              <label htmlFor="bgcolor">Text color:</label>
+            <div id="text-colors">
+              <label htmlFor="msgcolor">Text color:</label>
               <br />
               <button
                 type="button"
@@ -186,6 +212,7 @@ export const AddCard = () => {
                 onClick={(e) => setMsgcolor(e.target.value)}
               ></button>
               </div>
+              </div>
             <button type="submit" id="submit">
               Done!
             </button>
@@ -196,8 +223,3 @@ export const AddCard = () => {
   );
 };
 
-// export const ColorChangeButton = (props) => {
-//   return (
-//     <button className={props.color} onClick={() => props.setColor(props.color)}>{props.color}</button>
-//   )
-// }
