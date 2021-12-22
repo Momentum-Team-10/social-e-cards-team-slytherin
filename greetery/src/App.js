@@ -27,7 +27,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Gallery cards={cards}/>} />
           <Route path="/addcard" element={<AddCard />} />
-          <Route path="/login" element={<Login />} />
+          <Route path="/login" element={<Login setAuth={setAuth}/>} />
           <Route path="/registration" element={<Registration />} />
           {/* <Route path="/mygallery" element={<Gallery cards.filter={username}/>} /> */}
         </Routes>
