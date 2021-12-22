@@ -21,8 +21,6 @@ export default function Login({ setAuth }) {
     })
   }
 
-  
-
   return (
     <>
           <div>
@@ -36,21 +34,20 @@ export default function Login({ setAuth }) {
                 value={username}
                 onChange={(event) => setUsername(event.target.value)}
                 />
-               </div>
-               
-               <div>
-               <label>Password </label>
+              </div>
+
+              <div>
+                <label>Password </label>
                 <input
                 type="password"
                 id="password"
                 value={password}
                 onChange={(event) => setPassword(event.target.value)}
                 />
-                </div>
-
-                <div>
+              </div>
+              <div>
                 <button type="submit">Log In</button>
-                </div>
+              </div>
             </form>
             </div>
       </>
