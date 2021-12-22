@@ -1,4 +1,4 @@
-import Login from "./Login.js"
+import { Link } from "react-router-dom"
 
 const Navbar = () => {
     return (
@@ -12,7 +12,8 @@ const Navbar = () => {
             <div className="home_profile_navbar">
                 <a href="/" className="fas fa-home"> </a>
                 <a href="/" className="fas fa-user"> </a>
-                <Login />
+                <Link to="/login">Login</Link>
+                <Link to="/registration">Register</Link>
             </div>
         </nav>
     )

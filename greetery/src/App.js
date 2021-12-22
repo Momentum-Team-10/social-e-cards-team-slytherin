@@ -4,10 +4,11 @@ import Gallery from './component/Gallery'
 import { cardsData } from './cardsData'
 import './App.css';
 import Navbar from './component/Navbar'
-import Login from './component/Navbar'
+import Login from './component/Login.js'
 import  { AddCard } from './component/AddCard'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import useLocalStorageState from 'use-local-storage-state'
+import Registration from './component/registration'
 
 function App() {
   const [cards] = useState(cardsData)
@@ -18,7 +19,6 @@ function App() {
     setUsername(username)
     setToken(token)
   }
-  // const isLoggedIn 
       
   return (
     <div className="App">
@@ -27,7 +27,8 @@ function App() {
         <Routes>
           <Route path="/" element={<Gallery cards={cards}/>} />
           <Route path="/addcard" element={<AddCard />} />
-          <Route path="/login" element={<Login setAuth={setAuth} hello="hello" />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/registration" element={<Registration />} />
           {/* <Route path="/mygallery" element={Gallery cards.filter={cards}} */}
         </Routes>
       </Router>
