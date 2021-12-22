@@ -28,7 +28,7 @@ function App() {
           <Route path="/" element={<Gallery cards={cards}/>} />
           <Route path="/addcard" element={<AddCard />} />
           <Route path="/login" element={<Login setAuth={setAuth} hello="hello" />} />
-          {/* <Route path="/mygallery" element={Gallery cards.filter={cards}} */}
+          {/* <Route path="/mygallery" element={<Gallery cards.filter={username}/>} /> */}
         </Routes>
       </Router>
     </div>

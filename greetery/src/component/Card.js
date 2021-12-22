@@ -1,41 +1,26 @@
 import React, { useState } from "react";
-// import { useParams } from 'react-router-dom';
-// import axios from 'axios';
+
 
 // adding comment
 const Card = (props) => {
-    const { title, bgcolor, font, message, textcolor, creator } = props;
-    // const { cardId } = useParams()
+    const { key, title, bgcolor, msgfont, message, msgcolor, creator, cardType } = props;
     const [favorited, setFavorited] = useState("");
-    // const [cardObj, setCardObj] = useState(null)
     
     const onClick = () => {
         setFavorited(!favorited)
         // placeholder for favorited endpoint
     }
 
-    // useEffect(() => {
-    //     axios
-    //         .get(`https://greeterycards.herokuapp.com/ecard/card_detail/${cardId}`, {
-    //             // headers: {
-    //                 // Authorization: `token ${token}`,
-    //             // },
-    //         })
-    //         .then((res) => {
-    //             console.log(res.data)
-    //             setCardObj(res.data)
-    //         })
-    // }, [])
-    
+
     return (
         <>
-        <div className="card_container">
+        <div className="card_container" id={key}>
             <h3>{title}</h3>
             <h5>By: {creator}</h5>
-            <div className="card_details">
+            <div className={`card_details ${cardType}`}>
                 <div className={bgcolor}>
-                    <div className={font}>
-                    <h4 className={textcolor}>{message}</h4>
+                    <div className={`background_block ${bgcolor} ${msgfont} ${msgcolor}`}>
+                        <h4>{message}</h4>
                     </div>
                 </div>
             </div>
