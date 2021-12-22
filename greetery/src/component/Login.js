@@ -1,10 +1,8 @@
 import React, { useState } from "react";
-import "../Login.css";
 import axios from "axios";
 
 
-export default function Login({ setAuth, hello }) {
-  const [modal, setModal] = useState(false);
+export default function Login({ setAuth }) {
   const [password, setPassword] = useState("");
   const [username, setUsername] = useState("");
   
@@ -18,31 +16,14 @@ export default function Login({ setAuth, hello }) {
     .then((res) => {
       console.log(res)
       if (res.data.auth_token) {
-        // setAuth(username, res.data.auth_token)
+        setAuth(username, res.data.auth_token)
       }
     })
   }
 
-  const toggleModal = () => {
-    setModal(!modal);
-  };
-
-  if (modal) {
-    document.body.classList.add("active-modal");
-  } else {
-    document.body.classList.remove("active-modal");
-  }
-
   return (
     <>
-      <i onClick={toggleModal} className="fas fa-sign-in-alt">
-        Login
-      </i>
-
-      {modal && (
-        <div className="modal">
-          <div onClick={toggleModal} className="overlay"></div>
-          <div className="modal-content">
+          <div>
             <h2>Please Log In</h2>
             <form onSubmit={handleSubmit}>
                 <div>
@@ -68,12 +49,6 @@ export default function Login({ setAuth, hello }) {
                 <button type="submit">Log In</button>
               </div>
             </form>
-            <button className="close-modal" onClick={toggleModal}>
-              CLOSE
-            </button>
-          </div>
-        </div>
-      )}
-    </>
-  );
-}
+            </div>
+      </>
+  )} 
